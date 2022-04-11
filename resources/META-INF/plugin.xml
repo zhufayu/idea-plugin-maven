@@ -1,0 +1,36 @@
+<idea-plugin>
+  <id>com.dmall.mavensetup.plugin.id</id>
+  <name>Dmall Maven Setup</name>
+  <version>1.0</version>
+  <vendor email="midhub@dmall.com" url="http://www.dmall.com">Dmall Midhub Maven Setup</vendor>
+
+  <description>Dmall Midhub Maven Setup</description>
+  <change-notes>Dmall Midhub Maven Setup</change-notes>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+  <idea-version since-build="193.0"/>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+       on how to target different products -->
+  <!-- uncomment to enable plugin in all products
+  <depends>com.intellij.modules.lang</depends>
+  -->
+  <depends>Git4Idea</depends>
+  <depends>org.jetbrains.idea.maven</depends>
+
+  <actions>
+    <!-- Add your actions here -->
+    <action id="CloseProjectsAction" class="com.dmall.ProjectsSetupAction" text="Setup Projects"
+            description="Setup projects">
+      <add-to-group group-id="WindowMenu" anchor="first"/>
+      <keyboard-shortcut keymap="$default" first-keystroke="alt p"/>
+    </action>
+  </actions>
+
+  <applicationListeners>
+    <listener class="com.dmall.MyProjectManagerListener"
+              topic="com.intellij.openapi.project.ProjectManagerListener"/>
+  </applicationListeners>
+
+
+</idea-plugin>
